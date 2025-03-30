@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petverse/frontend/chatscreen.dart';
@@ -14,6 +15,16 @@ class PetDetailsScreen extends StatelessWidget {
     String petOwnerId = pet['reportedBy'] ?? '';
 
     if (currentUserId == null || petOwnerId.isEmpty) return;
+
+    if (currentUserId == petOwnerId) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("❌ You cannot chat with yourself."),
+          backgroundColor: Colors.redAccent,
+        ),
+      );
+      return;
+    }
 
     String chatId = currentUserId.compareTo(petOwnerId) < 0
         ? '${currentUserId}_$petOwnerId'
