@@ -67,7 +67,7 @@
   - Grooming: 78.8%
   - Feeding: 75.0%
   - Reminder: 83.0%
-- Exported to `.tflite` and quantized for mobile integration.
+- Exported to `.tflite` and quantized for mobile integration
 
 ---
 
