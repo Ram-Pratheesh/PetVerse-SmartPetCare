@@ -40,7 +40,7 @@ class _ClinicDetailsScreenState extends State<ClinicDetailsScreen> {
 
   Future<void> fetchAdditionalDetails(String placeId) async {
     const String apiKey =
-        "AIzaSyBlfqs5K9HEe9c1Eu5bjPXXjr8Hz2mbTZE"; // Replace with your API key
+        ""; // Replace with your API key
     final String detailsUrl =
         "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&fields=formatted_phone_number,opening_hours,reviews&key=$apiKey";
 
@@ -70,7 +70,7 @@ class _ClinicDetailsScreenState extends State<ClinicDetailsScreen> {
   // Fetch latitude & longitude from address if missing
   Future<void> getCoordinatesFromAddress(String address) async {
     const String apiKey =
-        "AIzaSyBlfqs5K9HEe9c1Eu5bjPXXjr8Hz2mbTZE"; // Replace with your API key
+        ""; // Replace with your API key
     final String url =
         "https://maps.googleapis.com/maps/api/geocode/json?address=${Uri.encodeComponent(address)}&key=$apiKey";
 
@@ -171,7 +171,7 @@ class _ClinicDetailsScreenState extends State<ClinicDetailsScreen> {
                 Image.network(
                   "https://maps.googleapis.com/maps/api/place/photo"
                   "?maxwidth=400&photoreference=$photoReference"
-                  "&key=AIzaSyBlfqs5K9HEe9c1Eu5bjPXXjr8Hz2mbTZE", // Replace with your API key
+                  "&key=", // Replace with your API key
                   width: double.infinity,
                   height: 200,
                   fit: BoxFit.cover,
