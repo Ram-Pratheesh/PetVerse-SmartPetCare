@@ -24,7 +24,7 @@ class _PetClinicScreenState extends State<PetClinicScreen> {
   bool isMapVisible = true;
   String selectedSortOption = "rating"; // Default sorting by rating
 
-  String apiKey = "AIzaSyBlfqs5K9HEe9c1Eu5bjPXXjr8Hz2mbTZE";
+  String apiKey = "";
   String locationTitle = "Select Your Location";
   double selectedRating = 0.0;
 
@@ -111,7 +111,7 @@ class _PetClinicScreenState extends State<PetClinicScreen> {
   Future<void> _fetchNearbyClinics() async {
     try {
       // Replace with your Google Places API key
-      const String apiKey = "AIzaSyBlfqs5K9HEe9c1Eu5bjPXXjr8Hz2mbTZE";
+      const String apiKey = "";
       String url =
           "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLocation!.latitude},${userLocation!.longitude}&radius=5000&type=veterinary_care&key=$apiKey";
 
