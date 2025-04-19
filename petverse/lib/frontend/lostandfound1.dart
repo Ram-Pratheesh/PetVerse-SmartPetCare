@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:petverse/frontend/mychatpage.dart';
 
 import 'package:petverse/frontend/petdetailsscreen.dart';
 import 'package:petverse/frontend/reportlostpet.dart';
@@ -165,6 +166,19 @@ class _LostFoundDashboardState extends State<LostFoundDashboard> {
                           () => _showMyLostPetsDialog(),
                         ),
                       ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: _buildActionButton(
+                          "My Chats",
+                          Icons.chat,
+                          Colors.green,
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const MyChatsPage()),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -204,9 +218,9 @@ class _LostFoundDashboardState extends State<LostFoundDashboard> {
                   subtitle: Text("Lost on: ${data["dateLost"]}"),
                   trailing: ElevatedButton(
                     onPressed: () => markPetAsFound(doc),
-                    child: const Text("Mark Found"),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    child: const Text("Mark Found"),
                   ),
                 );
               }).toList(),

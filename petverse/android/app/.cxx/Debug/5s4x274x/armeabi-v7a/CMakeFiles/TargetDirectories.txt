@@ -1,0 +1,2 @@
+D:/Downloads/My Apps(Built Ones)/NewPetVerse - Copy/petverse/android/app/.cxx/Debug/5s4x274x/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Downloads/My Apps(Built Ones)/NewPetVerse - Copy/petverse/android/app/.cxx/Debug/5s4x274x/armeabi-v7a/CMakeFiles/rebuild_cache.dir

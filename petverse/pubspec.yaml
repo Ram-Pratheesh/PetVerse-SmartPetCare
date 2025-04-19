@@ -27,7 +27,9 @@ dependencies:
   location: ^8.0.0
   shared_preferences: ^2.5.3
   geoflutterfire2: ^2.3.15
+  tflite_flutter: ^0.11.0
   
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,6 +46,7 @@ flutter:
     - assets/essentials.png
     - assets/mating.png
     - assets/adoption.png
+    - assets/models/breed_care_model.tflite  # 👈 Your TFLite model
 
   fonts:
     - family: Rubik Bubbles

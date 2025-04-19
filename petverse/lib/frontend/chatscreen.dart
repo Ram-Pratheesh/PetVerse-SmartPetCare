@@ -29,7 +29,6 @@ class _ChatScreenState extends State<ChatScreen> {
     String? userId = prefs.getString('userId');
 
     if (userId == widget.petOwnerId) {
-      // Self chat detected
       setState(() {
         isSelfChat = true;
       });
@@ -53,15 +52,26 @@ class _ChatScreenState extends State<ChatScreen> {
   Future<void> sendMessage() async {
     if (messageController.text.trim().isEmpty || currentUserId == null) return;
 
+    final text = messageController.text.trim();
+
     await FirebaseFirestore.instance
         .collection('chats')
         .doc(widget.chatId)
         .collection('messages')
         .add({
-      'text': messageController.text.trim(),
+      'text': text,
       'senderId': currentUserId,
       'timestamp': Timestamp.now(),
     });
+
+    await FirebaseFirestore.instance
+        .collection('chatsMetadata')
+        .doc(widget.chatId)
+        .set({
+      'participants': [currentUserId, widget.petOwnerId],
+      'lastMessage': text,
+      'lastTimestamp': Timestamp.now(),
+    }, SetOptions(merge: true));
 
     messageController.clear();
   }
@@ -78,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
         centerTitle: true,
       ),
       body: isSelfChat
-          ? const SizedBox() // nothing if it's self-chat
+          ? const SizedBox()
           : Column(
               children: [
                 Expanded(
